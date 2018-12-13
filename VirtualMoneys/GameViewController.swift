@@ -11,43 +11,27 @@ import SpriteKit
 import GameplayKit
 
 class GameViewController: UIViewController {
-    @IBOutlet weak var heightConstraint: NSLayoutConstraint!
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        //heightConstraint.constant = 0.3 * superView.height + 0
         
-        if let view = self.view as! SKView? {
-            // Load the SKScene from 'GameScene.sks'
-            if let scene = SKScene(fileNamed: "GameScene") {
-                // Set the scale mode to scale to fit the window
-                scene.scaleMode = .aspectFill
-                
-                // Present the scene
-                view.presentScene(scene)
+        let swipeUp = UISwipeGestureRecognizer(target: self, action: #selector(self.viewSwiped(gesture:)))
+        swipeUp.direction = UISwipeGestureRecognizer.Direction.up
+        imageView.addGestureRecognizer(swipeUp)
+        
+        }
+    
+    @objc
+     func viewSwiped(gesture: UIGestureRecognizer)
+    {
+        if let swipedView = gesture.view
+        {
+            if swipedView.tag == 1
+            {
+                //animate up
+                imageView.upSwipeAnimation()
             }
-            
-            view.ignoresSiblingOrder = true
-            
-            view.showsFPS = true
-            view.showsNodeCount = true
         }
-    }
-
-    override var shouldAutorotate: Bool {
-        return true
-    }
-
-    override var supportedInterfaceOrientations: UIInterfaceOrientationMask {
-        if UIDevice.current.userInterfaceIdiom == .phone {
-            return .allButUpsideDown
-        } else {
-            return .all
-        }
-    }
-
-    override var prefersStatusBarHidden: Bool {
-        return true
     }
     
     @IBOutlet weak var imageView: UIImageView!
@@ -62,5 +46,31 @@ class GameViewController: UIViewController {
 //
 //        NSLayoutConstraint.activeConstraints([yConstraint, xConstraint])
 //    }
+    
+}
+
+extension UIView
+{
+    func upSwipeAnimation(Duration: TimeInterval = 0.2, completionDelegate: AnyObject? = nil)
+    {
+        //Create a CATransition object
+        let upSwipeTransition = CATransition()
+        
+        
+        //Set its callback delegate to the completionDelegate that was provided
+        if let delegate: AnyObject = completionDelegate
+        {
+            upSwipeTransition.delegate = delegate as? CAAnimationDelegate
+        }
+        
+        upSwipeTransition.type = CATransitionType.push
+        upSwipeTransition.subtype = CATransitionSubtype.fromTop
+        upSwipeTransition.duration = Duration
+        upSwipeTransition.timingFunction = CAMediaTimingFunction(name: CAMediaTimingFunctionName.easeInEaseOut)
+        upSwipeTransition.fillMode = CAMediaTimingFillMode.removed
+        
+        //Add the animation to the View's layer
+        self.layer.add(upSwipeTransition, forKey: "upSwipeTransition")
+    }
     
 }

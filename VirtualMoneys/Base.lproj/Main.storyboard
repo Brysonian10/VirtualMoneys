@@ -26,10 +26,14 @@
                             <imageView contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" preservesSuperviewLayoutMargins="YES" layoutMarginsFollowReadableWidth="YES" image="dollarRotated" translatesAutoresizingMaskIntoConstraints="NO" id="bHZ-cn-4eA">
                                 <rect key="frame" x="30" y="320" width="315" height="750"/>
                                 <rect key="contentStretch" x="0.0" y="0.0" width="0.0" height="0.0"/>
+                                <gestureRecognizers/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="750" id="Mjb-y1-DU0"/>
                                 </constraints>
                                 <viewLayoutGuide key="safeArea" id="6vD-N5-aI7"/>
+                                <connections>
+                                    <outletCollection property="gestureRecognizers" destination="XVR-N5-PV5" appends="YES" id="sd0-PK-7hf"/>
+                                </connections>
                             </imageView>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="$0" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="IXV-98-xuG">
                                 <rect key="frame" x="177" y="76" width="21" height="21"/>
@@ -41,6 +45,8 @@
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
                             <constraint firstItem="Dx6-Sp-8U9" firstAttribute="top" secondItem="4qk-I5-YsI" secondAttribute="top" constant="19" id="8kz-d1-RQm"/>
+                            <constraint firstItem="4qk-I5-YsI" firstAttribute="trailing" secondItem="bHZ-cn-4eA" secondAttribute="trailing" constant="30" id="JX9-CN-3nj"/>
+                            <constraint firstItem="bHZ-cn-4eA" firstAttribute="centerX" secondItem="4qk-I5-YsI" secondAttribute="centerX" id="JgB-aQ-rte"/>
                             <constraint firstItem="Dx6-Sp-8U9" firstAttribute="centerX" secondItem="4qk-I5-YsI" secondAttribute="centerX" id="NRr-Ml-QLf"/>
                             <constraint firstItem="bHZ-cn-4eA" firstAttribute="leading" secondItem="4qk-I5-YsI" secondAttribute="leading" constant="30" id="PZq-Nj-4ar"/>
                             <constraint firstItem="4qk-I5-YsI" firstAttribute="trailing" relation="greaterThanOrEqual" secondItem="IXV-98-xuG" secondAttribute="trailing" multiplier="0.1" id="QRQ-UG-mbk"/>
@@ -57,6 +63,7 @@
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="SZV-WD-TEh" sceneMemberID="firstResponder"/>
+                <swipeGestureRecognizer direction="up" id="XVR-N5-PV5"/>
             </objects>
             <point key="canvasLocation" x="34.399999999999999" y="23.838080959520241"/>
         </scene>

@@ -12,6 +12,9 @@ import GameplayKit
 
 class GameViewController: UIViewController {
     
+    @IBOutlet weak var counerLabel: UILabel!
+    @IBOutlet weak var imageView: UIImageView!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -34,7 +37,7 @@ class GameViewController: UIViewController {
         }
     }
     
-    @IBOutlet weak var imageView: UIImageView!
+    
     
 //    override func viewDidLayoutSubviews()
 //    {

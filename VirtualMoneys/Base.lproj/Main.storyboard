@@ -49,7 +49,6 @@
                             <constraint firstItem="bHZ-cn-4eA" firstAttribute="centerX" secondItem="4qk-I5-YsI" secondAttribute="centerX" id="JgB-aQ-rte"/>
                             <constraint firstItem="Dx6-Sp-8U9" firstAttribute="centerX" secondItem="4qk-I5-YsI" secondAttribute="centerX" id="NRr-Ml-QLf"/>
                             <constraint firstItem="bHZ-cn-4eA" firstAttribute="leading" secondItem="4qk-I5-YsI" secondAttribute="leading" constant="30" id="PZq-Nj-4ar"/>
-                            <constraint firstItem="4qk-I5-YsI" firstAttribute="trailing" relation="greaterThanOrEqual" secondItem="IXV-98-xuG" secondAttribute="trailing" multiplier="0.1" id="QRQ-UG-mbk"/>
                             <constraint firstItem="bHZ-cn-4eA" firstAttribute="top" secondItem="3se-qz-xqx" secondAttribute="top" constant="320" id="RyK-db-9Rc"/>
                             <constraint firstItem="bHZ-cn-4eA" firstAttribute="centerX" secondItem="3se-qz-xqx" secondAttribute="centerX" id="evR-e2-LdI"/>
                             <constraint firstItem="IXV-98-xuG" firstAttribute="top" secondItem="Dx6-Sp-8U9" secondAttribute="bottom" constant="8" id="hkO-R5-59v"/>
@@ -59,6 +58,7 @@
                         <viewLayoutGuide key="safeArea" id="4qk-I5-YsI"/>
                     </view>
                     <connections>
+                        <outlet property="counerLabel" destination="IXV-98-xuG" id="pxH-I5-Cb9"/>
                         <outlet property="imageView" destination="bHZ-cn-4eA" id="HUo-rm-AVO"/>
                     </connections>
                 </viewController>
